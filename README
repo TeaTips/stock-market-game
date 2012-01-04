@@ -1,3 +1,25 @@
 I'm making a stock market game. It's open source and licensed under a Creative Commons Attribution 3.0 Unported License.
 
-I'll be working on this in my free time so development will be slow-ish. There's not much to document at the moment so I'll write up a proper README when there's more to write about.
+I've thrown up the code so far because the README file was looking lonely. It's basically a very bare-bones system, there's no gui yet and there's barely any featues, but I figured I should commit what I'm working on just so it looks like I'm working on it.
+
+Main.java is the only file at the moment because I haven't seen the need for more (yet). Over the next month the stock market simulater will have most of its features done and hopefully the gui (but don't count on the gui part).
+
+Features in next commit/version:
+ * User can buy/sell stocks
+ * Better price fluctuation
+ * Using floats or doubles for the prices instead of integers
+
+Features in version after that:
+ * A slightly nicer interface to work with
+ * Market predictions
+ * Chance of GFC-like√ event
+
+Features in future versions:
+ * Individual company price "attributes" or "traits"
+ * More companies
+ * Money lender or loan shark
+ * Possibility for companies to go completely bankrupt and not listed in the exchange
+ * Possibility for companies to buy back shares
+ * (Maybe) Dividens paid to the user every X days/months/years
+ * User can save their progress and high score
+ * (More features as I think of them)
