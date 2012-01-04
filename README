@@ -1,18 +1,19 @@
 I'm making a stock market game. It's open source and licensed under a Creative Commons Attribution 3.0 Unported License.
 
-I've thrown up the code so far because the README file was looking lonely. It's basically a very bare-bones system, there's no gui yet and there's barely any featues, but I figured I should commit what I'm working on just so it looks like I'm working on it.
+Main.java is the only file at the moment because I haven't seen the need for more (yet). Over the next month the stock market simulator will have most of its features done and hopefully the gui (but don't count on the gui part).
 
-Main.java is the only file at the moment because I haven't seen the need for more (yet). Over the next month the stock market simulater will have most of its features done and hopefully the gui (but don't count on the gui part).
+Changes this version:
+ + Users can buy/sell stock
+ + Added pseudo-debug function to simulate the next 100 days (input 7 at the main menu)
+ + Users can see how much money they have
+ + Added "My Shares"
+ * Made all prices into doubles
+ * Tweaked fluctuation "algorithm"
 
-Features in next commit/version:
- * User can buy/sell stocks
- * Better price fluctuation
- * Using floats or doubles for the prices instead of integers
-
-Features in version after that:
+Features in next version:
  * A slightly nicer interface to work with
  * Market predictions
- * Chance of GFC-like√ event
+ * Chance of GFC-like event
 
 Features in future versions:
  * Individual company price "attributes" or "traits"
@@ -20,6 +21,6 @@ Features in future versions:
  * Money lender or loan shark
  * Possibility for companies to go completely bankrupt and not listed in the exchange
  * Possibility for companies to buy back shares
- * (Maybe) Dividens paid to the user every X days/months/years
+ * (Maybe) Dividends paid to the user every X days/months/years
  * User can save their progress and high score
  * (More features as I think of them)

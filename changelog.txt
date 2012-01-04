@@ -1,0 +1,7 @@
+Changelog
+
+v0.1 (04/01/12)
+ + Added companies
+ + Added user money
+ + Added simple share price fluctuation
+ + Added days
