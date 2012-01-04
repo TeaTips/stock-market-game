@@ -5,3 +5,11 @@ v0.1 (04/01/12)
  + Added user money
  + Added simple share price fluctuation
  + Added days
+
+v0.2 (04/01/12)
+ + Users can buy/sell stock
+ + Added pseudo-debug function to simulate the next 100 days (input 7 at the main menu)
+ + Users can see how much money they have
+ + Added "My Shares"
+ * Made all prices into doubles
+ * Tweaked fluctuation "algorithm"
