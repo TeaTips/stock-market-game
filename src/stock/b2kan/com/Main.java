@@ -15,9 +15,10 @@ import java.lang.Math;
 public class Main {
 	public static Random rand		= new Random();
 	public static Scanner inputScan	= new Scanner(System.in);
+	public static Scanner inputScan2= new Scanner(System.in);
 	public static int input, day, daysLeft = 0, count = 0;
 	public static double price1, price2, price3, price4;
-	public static double version	= 0.3;
+	public static String version	= "0.3.1";
 	public static double money		= 100.0;
 	public static double debt		= 0.0;
 	public static boolean borrowed = false, lastChance = false;
@@ -35,13 +36,13 @@ public class Main {
 	
 	public static void menu() {
 		System.out.println("\n\nStock Market Game v"+version+"\n" +
-							"You have $"+money+" in the bank.\n");
+							"You have $"+money+" in the bank.");
 		if(borrowed == true) { System.out.println("You are $"+debt+" in debt"); }
 		if(rumor != -1 || thisRumor == "The rumor was true!" || thisRumor == "The rumor was false!") {
-			System.out.println("Latest News: "+thisRumor+"\n");
+			System.out.println("\nLatest News: "+thisRumor);
 			thisRumor	= "";
 		}
-		System.out.println("1. Stock Prices.\n" +
+		System.out.println("\n1. Stock Prices.\n" +
 							"2. Buy Stocks.\n" +
 							"3. Sell Stocks.\n" +
 							"4. My Shares.\n" +
@@ -266,14 +267,17 @@ public class Main {
 		System.out.println("\n\nLoan Shark\nHow much would you like to borrow from Logan the loan shark? (intrest rate of 5% per day)\n");
 		System.out.print("$");
 		input	= inputScan.nextInt();
-		System.out.println("Are you sure you wish to borrow $"+input+"? Intrest will be "+(input + (input * .05))+" per day. (y/n)");
-		yesno		= inputScan.nextLine();
+		System.out.println("Are you sure you wish to borrow $"+input+"? Intrest will be $"+(input * .05)+" per day. (y/n)");
+		yesno	= inputScan2.next();
 		
-		if(yesno == "y" || yesno == "Y" || yesno == "yes") {
+		if(yesno.equals("y") || yesno.equals("Y") || yesno.equals("yes")) {
 			debt		= input;
+			money		= money + input;
 			borrowed	= true;
 			System.out.println("You have been granted the money. Logan will be visiting in 5 days to get his money back.");
 			daysLeft	= 5;
+		} else {
+			System.out.println("Logan walked.");
 		}
 	}
 
