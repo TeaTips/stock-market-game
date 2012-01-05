@@ -21,3 +21,7 @@ v0.3 (05/01/12)
  + Added game over screen
  * Rumors can now be false
  * Tweaked nextDay method lots to accommodate for new functions
+
+v0.3.1 (05/01/12)
+ * Fixed loanShark method not granting the player it's money
+ * Tweaked the main menu
