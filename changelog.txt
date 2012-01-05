@@ -23,5 +23,21 @@ v0.3 (05/01/12)
  * Tweaked nextDay method lots to accommodate for new functions
 
 v0.3.1 (05/01/12)
- * Fixed loanShark method not granting the player it's money
+ * Fixed loanShark method not granting the player their money
  * Tweaked the main menu
+
+v0.4 (05/01/12)
+ + Added more companies
+ + Added two more rumors
+ + Better fluctuations
+ + Company traits (i.e. steady or unsteady)
+ + Added chance of buy backs
+ * Made it so players can't by stock worth $0.00 for obvious reasons
+ * Made it easier to add more companies to the exchange
+ * Tweaked how share prices are managed (now done with an array)
+ * Split code into three classes
+ * Fixed buyStock so that it actually changes how much money the player has
+ * Fixed buyStock and sellStock so you can go back to the main menu
+ * Fixed bug that doesn't show rumors when viewing the main menu more than once per day
+ * Modified myShares to only show companies that the player has shares in
+ * Modified how stock prices are listed
