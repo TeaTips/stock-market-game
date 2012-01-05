@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: stock.b2kan.com.Main
+
+Name: stock/b2kan/com/
+Sealed: true
+
