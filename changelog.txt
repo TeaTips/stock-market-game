@@ -13,3 +13,11 @@ v0.2 (04/01/12)
  + Added "My Shares"
  * Made all prices into doubles
  * Tweaked fluctuation "algorithm"
+
+v0.3 (05/01/12)
+ + Added GFC event
+ + Player can borrow money from loan shark
+ + Players can now lose
+ + Added game over screen
+ * Rumors can now be false
+ * Tweaked nextDay method lots to accommodate for new functions
