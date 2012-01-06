@@ -4,6 +4,7 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -16,18 +17,14 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
-	private static JButton buyDerp;
-	private static JButton buyHerp;
-	private static JButton buyFoo;
-	private static JButton buyBar;
-	private static JButton buyNano;
-	private static JButton buyApple;
-	private static JLabel companyName;
+	private static JButton buyDerp, buyHerp, buyFoo, buyBar, buyNano, buyApple, nextDay;
+	private static JLabel companyName, priceDerp, priceHerp, priceFoo, priceBar, priceNano, priceApple;
+	public static GridBagConstraints con	= new GridBagConstraints();
+	public static JFrame gui	= new JFrame("GUI tests");
+	public static GUI content	= new GUI(gui);
 	
 	public static void showGUI() {
-		JFrame gui	= new JFrame("GUI tests");
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		GUI content	= new GUI(gui);
 		content.getContentPane();
 		
 		gui.pack();
@@ -37,60 +34,68 @@ public class GUI extends JFrame {
 	public GUI(Container pane) {
 		pane.setLayout(new GridBagLayout());
 		pane.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		GridBagConstraints con	= new GridBagConstraints();
 		con.fill				= GridBagConstraints.HORIZONTAL;
-		
-		JPanel shares	= new JPanel();
-		shares.setLayout(new GridBagLayout());
-		pane.add(shares, con);
+		con.gridx	= 0;
+		con.gridy	= 0;
+		con.insets	= new Insets(10,10,10,10);
+		JPanel buyShares	= new JPanel();
+		buyShares.setLayout(new GridBagLayout());
+		pane.add(buyShares, con);
 		
 		companyName		= new JLabel("Derp Inc"); 
 		buyDerp			= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 0;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyDerp, con);
+		buyShares.add(buyDerp, con);
 
 		companyName		= new JLabel("Herp Industries"); 
 		buyHerp			= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 1;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyHerp, con);
+		buyShares.add(buyHerp, con);
 		
 		companyName		= new JLabel("Foo Corp"); 
 		buyFoo			= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 2;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyFoo, con);
+		buyShares.add(buyFoo, con);
 		
 		companyName		= new JLabel("Bar Pty Ltd"); 
 		buyBar			= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 3;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyBar, con);
+		buyShares.add(buyBar, con);
 		
 		companyName		= new JLabel("Nanohard"); 
 		buyNano			= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 4;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyNano, con);
+		buyShares.add(buyNano, con);
 		
 		companyName		= new JLabel("Applesoft"); 
 		buyApple		= new JButton("Buy shares");
 		con.gridx	= 0;
 		con.gridy	= 5;
-		shares.add(companyName, con);
+		buyShares.add(companyName, con);
 		con.gridx	= 1;
-		shares.add(buyApple, con);
+		buyShares.add(buyApple, con);
+		
+		con.gridx	= 0;
+		
+		showPrices(pane, false);
+		con.gridy	= Main.listed.length;
+		nextDay		= new JButton("Next Day");
+		buyShares.add(nextDay, con);
 		
 		HandlerClass handler	= new HandlerClass();
 		buyDerp.addActionListener(handler);
@@ -99,6 +104,111 @@ public class GUI extends JFrame {
 		buyBar.addActionListener(handler);
 		buyNano.addActionListener(handler);
 		buyApple.addActionListener(handler);
+		nextDay.addActionListener(handler);
+	}
+	
+	public static void showPrices(Container pane, boolean update) {
+		con.gridx	= 1;
+		con.gridy	= 0;
+		con.weighty	= 0.0;
+		JPanel sharePrice	= new JPanel();
+		sharePrice.setLayout(new GridBagLayout());
+		pane.add(sharePrice, con);
+		if(update == false) {
+			con.gridx	= 0;
+			con.gridy	= 0;
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			String thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceDerp	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceDerp, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+			
+
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceHerp	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceHerp, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+			
+
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceFoo	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceFoo, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+			
+
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceBar	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceBar, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+			
+
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceNano	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceNano, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+			
+
+			companyName	= new JLabel(Main.listed[con.gridy]);
+			sharePrice.add(companyName, con);
+			
+			con.gridx	= 1;
+			thisPrice	= Double.toString(Main.exchange[con.gridy]);
+			priceApple	= new JLabel("$"+thisPrice);
+			sharePrice.add(priceApple, con);
+			
+			con.gridx	= 0;
+			con.gridy++;
+		} else {
+			int count	= 0;
+			String thisPrice	= Double.toString(Main.exchange[count]);
+			priceDerp.setText("$"+thisPrice);
+			count++;
+			thisPrice	= Double.toString(Main.exchange[count]);
+			priceHerp.setText("$"+thisPrice);
+			count++;
+			thisPrice	= Double.toString(Main.exchange[count]);
+			priceFoo.setText("$"+thisPrice);
+			count++;
+			thisPrice	= Double.toString(Main.exchange[count]);
+			priceBar.setText("$"+thisPrice);
+			count++;
+			thisPrice	= Double.toString(Main.exchange[count]);
+			priceNano.setText("$"+thisPrice);
+			count++;
+			thisPrice	= Double.toString(Main.exchange[count]);
+			priceApple.setText("$"+thisPrice);
+			pane.repaint();
+		}
+		//sharePrice.add(nextDay, con);
 	}
 	
 	private class HandlerClass implements ActionListener {
@@ -108,6 +218,10 @@ public class GUI extends JFrame {
 		Object[] options	= new String[] {"Yes", "No"};
 		JDialog dialog;
 		public void actionPerformed(ActionEvent event) {
+			if(event.getSource() == nextDay) {
+				Main.nextDay();
+				showPrices(gui, true);
+			}
 			if(event.getSource() == buyDerp || event.getSource() == buyHerp || event.getSource() == buyFoo || event.getSource() == buyBar || event.getSource() == buyNano || event.getSource() == buyApple) {
 				String StAmount	= JOptionPane.showInputDialog("How many shares would you like to buy?");
 				amount		= Integer.parseInt(StAmount);
