@@ -17,7 +17,7 @@ public class Main {
 	public static Scanner inputScan	= new Scanner(System.in);
 	public static Scanner inputScan2= new Scanner(System.in);
 	public static int input, day, daysLeft = 0, count = 0;
-	public static String version	= "0.4";
+	public static String version	= "0.5";
 	public static int[] inventory1	= {0, 0, 0, 0, 0, 0};
 	public static double[] inventory2	= {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 	public static boolean gfc		= false;
@@ -31,6 +31,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		init();
+		if(args.length == 1) {
+			if(args[0].equals("nogui")) {
+				GUI.showGUI();
+			}
+		}
 		menu();
 	}
 	
