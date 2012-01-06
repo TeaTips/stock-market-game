@@ -35,7 +35,8 @@ Changes this version (v0.4):
  * Modified how stock prices are listed
 
 Features in next version:
- * It's really, really late and I swore I would release v0.4 before I went to sleep, so I'll finish this section tomorrow. As soon as I've committed I'm doing to fall into a deep, deep sleep.
+ * A rough version of the GUI
+ * Option to run with the GUI or the textul based version
 
 Features in future versions:
  * Possibility for companies to go completely bankrupt and not listed in the exchange
