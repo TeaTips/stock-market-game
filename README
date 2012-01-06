@@ -9,8 +9,7 @@ Main.java is the only file at the moment because I haven't seen the need for mor
 Recent News
 ===========
 
- * Fixed bug that skips adding money and debt to the player
- * Uploaded version 0.3.1
+I added a very early version of the GUI so people can see how I'm going to do it (to some degree). If you would like to run it with the one-quarter-finished gui and you don't want to look at the code, run it at the command line like this: "java -jar stock-market-v0.5.jar showgui"
 
 
 Version Changes
@@ -35,8 +34,7 @@ Changes this version (v0.4):
  * Modified how stock prices are listed
 
 Features in next version:
- * A rough version of the GUI
- * Option to run with the GUI or the textul based version
+ * It's really, really late and I swore I would release v0.4 before I went to sleep, so I'll finish this section tomorrow. As soon as I've committed I'm doing to fall into a deep, deep sleep.
 
 Features in future versions:
  * Possibility for companies to go completely bankrupt and not listed in the exchange
