@@ -221,6 +221,7 @@ public class GUI extends JFrame {
 			if(event.getSource() == nextDay) {
 				Main.nextDay();
 				showPrices(gui, true);
+				Game.showNews();
 			}
 			if(event.getSource() == buyDerp || event.getSource() == buyHerp || event.getSource() == buyFoo || event.getSource() == buyBar || event.getSource() == buyNano || event.getSource() == buyApple) {
 				String StAmount	= JOptionPane.showInputDialog("How many shares would you like to buy?");

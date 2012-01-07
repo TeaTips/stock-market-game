@@ -16,7 +16,7 @@ public class Main {
 	public static Random rand		= new Random();
 	public static Scanner inputScan	= new Scanner(System.in);
 	public static Scanner inputScan2= new Scanner(System.in);
-	public static int input, day, daysLeft = 0, count = 0;
+	public static int input, day, daysLeft = 0, count = 0, gfcCount = 0;
 	public static String version	= "0.5";
 	public static int[] inventory1	= {0, 0, 0, 0, 0, 0};
 	public static double[] inventory2	= {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -31,11 +31,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		init();
-		if(args.length == 1) {
-			if(args[0].equals("nogui")) {
+		//if(args.length == 1) {
+			//if(args[0].equals("showgui")) {
 				GUI.showGUI();
-			}
-		}
+			//}
+		//}
 		menu();
 	}
 	
@@ -43,13 +43,7 @@ public class Main {
 		System.out.println("\n\nStock Market Game v"+version+"\n" +
 							"You have $"+Money.money+" in the bank.");
 		if(Money.borrowed == true) { System.out.println("You are $"+Money.debt+" in debt"); }
-		if(rumor != -1 || thisRumor == "The rumor was true!" || thisRumor == "The rumor was false!") {
-			System.out.println("\nLatest News: "+thisRumor);
-		}
-		if(news != "") {
-			System.out.println("\n"+news);
-			news	= "";
-		}
+		Game.showNews();
 		System.out.println("\n1. Stock Prices.\n" +
 							"2. Buy Stocks.\n" +
 							"3. Sell Stocks.\n" +
@@ -125,8 +119,8 @@ public class Main {
 						case 2: exchange[2]	= exchange[2] - (exchange[2] * .4); exchange[2]	= Math.round(exchange[2] * 100.0) / 100.0;
 						case 3: exchange[2]	= exchange[2] - (exchange[2] * .6); exchange[2]	= Math.round(exchange[2] * 100.0) / 100.0;
 					}
+					thisRumor	= "The rumor was true!";
 				}
-				thisRumor	= "The rumor was true!";
 				rumor		= -1; // Set to -2 because the rumor "it was true" doesn't deserve a postive number
 			} else { // If the rumor is false
 				thisRumor	= "The rumor was false!";
@@ -134,10 +128,13 @@ public class Main {
 			}
 		} else {
 			if(thisRumor == "") {
-				thisRumor	= "";
-				Game.rollForRumor();
 				Game.rollForGfc();
-				Game.rollForBuyBack();
+				if(gfc == false) {
+					Game.rollForRumor();
+					Game.rollForBuyBack();
+				} else {
+					gfcCount	= 3;
+				}
 			} else {
 				rumor = -1;
 				thisRumor	= "";
@@ -171,6 +168,14 @@ public class Main {
 		
 		if(barBankrupt == true) {
 			exchange[3]	= 0.0;
+		}
+		
+		if(gfc == true) {
+			gfcCount--;
+		}
+		
+		if(gfc == true && gfcCount == 0) {
+			gfc	= false;
 		}
 	}
 	

@@ -23,7 +23,6 @@ public class Game {
 				}
 			}
 			Main.oldRumor	= Main.thisRumor;
-			System.out.println("Latest News: "+Main.thisRumor+"\n");
 		}
 		
 	}
@@ -49,6 +48,16 @@ public class Game {
 					Money.money	= Money.money + (Main.inventory1[random] * (currentPrice * .2));
 				}
 			}
+		}
+	}
+	
+	public static void showNews() {
+		if(Main.rumor != -1 || Main.thisRumor == "The rumor was true!" || Main.thisRumor == "The rumor was false!") {
+			System.out.println("\nLatest News: "+Main.thisRumor);
+		}
+		if(Main.news != "") {
+			System.out.println("\n"+Main.news);
+			Main.news	= "";
 		}
 	}
 	

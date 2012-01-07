@@ -36,11 +36,11 @@ public class Money {
 		if(trait.equals("STABLE")) {
 			change[0] = 2;
 			change[1] = 5;
-			change[2] = 2;
+			change[2] = 1;
 		} else {
 			change[0] = 3;
 			change[1] = 7;
-			change[2] = 4;
+			change[2] = 3;
 		}
 		// 0 = Stable(ish), 1 = Positive shift, 2 = Negative shift.
 		switch(chance) {
